@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "name": "express-app",
+  "version": "1.0.0",
+  "description": "A simple Express.js application",
+  "main": "./thread/index.js",
+  "scripts": {
+    "start:worker": "node ./thread/index.js",
+    "start:cluster": "node ./cluster/index.js",
+    "start:mainCluster": "node ./cluster/main_cluster.js"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "private": true,
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9"
+  }
+}

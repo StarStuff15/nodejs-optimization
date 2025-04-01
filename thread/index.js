@@ -1,5 +1,5 @@
-const express = require("express");
-const { Worker } = require("worker_threads");
+import express from "express";
+import { Worker } from "worker_threads";
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.get("/non-blocking", (req, res) => {
 
 app.get("/heavy", (req, res) => {
   let sum = 0;
-  for (let i = 0; i < 1e9; i++) sum += i;
+  for (let i = 0; i < 5e10; i++) sum += i;
   res.send(`Sum: ${sum}`);
 });
 
@@ -31,5 +31,7 @@ app.get("/heavy-with-worker-thread", (req, res) => {
     }
   });
 });
+
+console.log("Network process ID:", process.pid);
 
 app.listen(3000, () => console.log("Server running on port 3000"));
